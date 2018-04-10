@@ -134,7 +134,7 @@ var VpaidIos = (function (){
             scParam.innerHTML = "var adParameters = " + adParams + ";";
             iframe.contentWindow.document.body.appendChild(scParam);
             var scPlayer = document.createElement("script");
-            scPlayer.setAttribute("src", url);
+            scPlayer.setAttribute("src", url + '?cache=' + (new Date().getTime());
             scPlayer.onload = function (){
                 var getVPAIDAd = iframe.contentWindow['getVPAIDAd'];
                 var adParameters = JSON.stringify(iframe.contentWindow['adParameters']);
