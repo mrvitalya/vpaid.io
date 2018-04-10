@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>iOS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="VpaidIos.js"></script>
 </head>
 <body>
     <script>
-        var config = {
-            vpaid: "https://s3-us-west-2.amazonaws.com/dvtests/VpaidVideoAd_v2.js",
-            adParameters: "{\"videos\" : [{mimetype: 'video/mp4', url : 'http://console.cmcm.com/resources/Aquarius-Horizontal%20Video.mp4'}]}",
-            sound:0
-        };
-        runVpaidIos(config);
+        window.document.addEventListener('DOMContentLoaded', function() {
+                 var config = {
+                 vpaid: "https://s3-us-west-2.amazonaws.com/dvtests/VpaidVideoAd_v2.js",
+                 adParameters: "{\"videos\" : [{mimetype: 'video/mp4', url : 'http://console.cmcm.com/resources/Aquarius-Horizontal%20Video.mp4'}]}",
+                 sound:0
+                 };
+                 runVpaidIos(config);
+     });
+      
     </script>
 </body>
 </html>

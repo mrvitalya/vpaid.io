@@ -106,7 +106,12 @@ var VpaidIos = (function (){
         };
 
         this.onEventPlayer = function (event){
-            window.webkit.messageHandlers.vpaidEvent.postMessage(event);
+                if(window.webkit) {
+                    window.webkit.messageHandlers.vpaidEvent.postMessage(event);
+                } else {
+                      console.warn('window.webkit not found');
+                }
+            
         };
 
         this.setAdVolume = function (state, hideButton){
@@ -189,7 +194,12 @@ var VpaidIos = (function (){
 function runVpaidIos(config) {
     var vpaid = new VpaidIos();
     config['errorCb'] = function (err) {
-        window.webkit.messageHandlers.vpaidError.postMessage(err || "Unknown error");
+        if(window.webkit) {
+              window.webkit.messageHandlers.vpaidError.postMessage(err || "Unknown error");
+        } else {
+            console.warn('window.webkit not found');
+        }
+      
     };
     if(!vpaid.isValidConfig(config)){
         return config['errorCb']('Invalid config');
